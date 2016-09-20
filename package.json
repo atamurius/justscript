@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "JS learning site using react",
   "scripts": {
-    "start": "npm run build && npm run server",
-    "clean": "rm -r target/*",
     "dev": "webpack-dev-server --progress --colors --inline --content-base=public --hot -w",
-    "build": "node node_modules/webpack/bin/webpack.js",
-    "server": "node src/server/index.js",
+    "prestart": "$(npm bin)/webpack",
+    "start": "node ./src/server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
