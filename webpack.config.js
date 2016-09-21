@@ -1,5 +1,5 @@
 var path = require('path');
-var webpack = require('webpack');
+var et = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -13,13 +13,30 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loader: 'babel-loader',
-      exclude: /node_modules/,
+      include: [ path.resolve(__dirname, 'src') ],
       query: {
-        presets: ['es2015','react']
+        plugins: ['transform-runtime'],
+        presets: ['es2015', 'stage-0', 'react'],
       }
+    },{
+      test: /\.scss$/,
+      loader: et.extract('style-loader', 'css-loader!sass-loader?sourceMap'),
+      include: [ path.resolve(__dirname, 'src') ],
     }]
   },
+  plugins: [
+    new et('style.css', {
+      allChunks: true
+    })
+  ],
   resolve: {
     extensions: ['','.js','.jsx']
+  },
+  devServer: {
+    progress: true,
+    inline: true,
+    colors: true,
+    watch: true,
+    historyApiFallback: true,
   }
 };

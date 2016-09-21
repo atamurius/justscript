@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Test from './test';
+import router from './router';
 
-ReactDOM.render(<Test/>, document.getElementById('content'));
+ReactDOM.render(router, document.getElementById('content'));
