@@ -5,9 +5,17 @@ export default class Nav extends React.Component {
   static contextTypes = {
     router: routerShape
   }
+  closeNavbarToggle = () => {
+    const toggle = document.querySelector('.navbar-toggle');
+    toggle && ! toggle.classList.contains('collapsed') && toggle.click();
+  }
   link({ url, text }) {
     const cls = this.context.router.isActive(url, true) ? 'active' : '';
-    return <li key={url} className={cls}><Link to={url}>{text}</Link></li>
+    return <li key={url} className={cls}>
+      <Link to={url} onClick={this.closeNavbarToggle}>
+        {text}
+      </Link>
+    </li>;
   }
   render = () =>
     <nav className="navbar navbar-default navbar-fixed-top">

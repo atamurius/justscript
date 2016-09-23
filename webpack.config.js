@@ -30,7 +30,10 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['','.js','.jsx']
+    extensions: ['','.js','.jsx'],
+    root: [
+      path.resolve(__dirname, 'src')
+    ]
   },
   devServer: {
     progress: true,
