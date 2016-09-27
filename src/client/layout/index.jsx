@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from './nav';
 import { connected } from 'client/utils/redux';
 import './index.scss';
+import { currentVersion } from 'client/modules/version';
 
 class Layout extends React.Component {
   static stores = [ 'versions' ];
@@ -15,7 +16,7 @@ class Layout extends React.Component {
         {this.props.children}
       </div>
       <div className="footer">
-        &copy;2016 v{this.props.versions.get('current')}
+        &copy;2016 v{currentVersion(this.props)}
       </div>
     </div>
   ;

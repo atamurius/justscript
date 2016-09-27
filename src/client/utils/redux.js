@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { fromJS } from 'immutable';
 
 export const connected = component => {
   const stores = component.stores || [ ];
@@ -8,6 +9,10 @@ export const connected = component => {
   return connect(mapStores, actions)(component);
 }
 
+export const extendStore = (key, data) => store => ({
+  ...store,
+  [key]: store[key] ? store[key].merge(fromJS(data)) : fromJS(data),
+})
 
 const empty = () => ({});
 
@@ -19,7 +24,7 @@ export const action = (type, f = empty) => {
   return result;
 }
 
-export const reducer = (reducers = { }) => (state = { }, action) => {
+export const reducerMap = (reducers = { }) => (state = { }, action) => {
   for (let key in reducers) {
     if (key === action.type) {
       state = reducers[key](state, action);

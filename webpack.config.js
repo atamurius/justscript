@@ -7,7 +7,8 @@ module.exports = {
   },
   output: {
     path: __dirname +'/target',
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    sourceMapFilename: "[name].bundle.js.map",
   },
   module: {
     loaders: [{
@@ -16,7 +17,7 @@ module.exports = {
       include: [ path.resolve(__dirname, 'src') ],
       query: {
         plugins: ['transform-runtime'],
-        presets: ['es2015', 'stage-0', 'react'],
+        presets: ['latest','react','stage-0'],
       }
     },{
       test: /\.scss$/,

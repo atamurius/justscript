@@ -1,10 +1,10 @@
 import { combineReducers, createStore } from 'redux';
-import * as reducers from './modules';
-import { migrate } from './modules/version';
+import { modules, migrations } from './modules';
+import migrate from './modules/version/migrate';
 
 // TODO save and load initialState
-const initialState = migrate({ });
-const reducer = combineReducers(reducers);
+const initialState = migrate({ }, migrations);
+const reducer = combineReducers(modules);
 const store = createStore(reducer, initialState,
   window && window.devToolsExtension && window.devToolsExtension());
 
