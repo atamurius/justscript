@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { increment, value } from 'client/modules/inc';
-import { listVersions } from 'client/modules/version';
+import { listVersions } from 'client/modules/versions';
 import { connected } from 'client/utils/redux';
 
 class Test extends React.Component {
@@ -24,7 +24,7 @@ class Test extends React.Component {
         <h2>Changelog</h2>
         <ul>
           {listVersions(this.props).map(v =>
-            <li key={v.version}><code>{v.version}</code>&nbsp;&ndash; {v.description}</li>
+            <li key={v.id}><code>{v.id}</code>&nbsp;&ndash; {v.description}</li>
           )}
         </ul>
       </div>

@@ -18,7 +18,7 @@ export default class Nav extends React.Component {
     </li>;
   }
   render = () =>
-    <nav className="navbar navbar-default navbar-fixed-top">
+    <nav className="navbar navbar-fixed-top">
       <div className="container-fluid">
 
         <div className="navbar-header">

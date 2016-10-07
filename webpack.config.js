@@ -16,7 +16,10 @@ module.exports = {
       loader: 'babel-loader',
       include: [ path.resolve(__dirname, 'src') ],
       query: {
-        plugins: ['transform-runtime'],
+        plugins: [
+          'transform-runtime',
+          'transform-export-extensions'
+        ],
         presets: ['latest','react','stage-0'],
       }
     },{

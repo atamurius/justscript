@@ -1,5 +1,4 @@
-$color_accent: #5DADE2;
-$color_accent_lt: #85C1E9;
+@import "../material.scss";
 
 html, body {
   height: 100%;
@@ -31,13 +30,41 @@ html {
 
     #content {
 
-      .navbar-brand {
-        background-color: $color_accent_lt;
-        text-shadow: 0 0 5px $color_accent;
-        color: white;
+      .navbar {
+        background-color: $primary-color;
+        border-top: 10px solid $primary-color-dark;
+        @include elevation(1);
+
+        .navbar-brand {
+          font-family: 'Inconsolata', monospace;
+          font-size: 150%;
+          color: $primary-color-text;
+          opacity: $opacity-primary;
+        }
+        .nav {
+          li.active {
+            background-color: $primary-color-light;
+          }
+          li:hover {
+            background-color: $primary-color-light;
+          }
+          a {
+            color: $primary-color-text;
+            opacity: $opacity-primary;
+            background-color: transparent;
+          }
+        }
       }
 
-      $footer-height: 70px;
+      .test {
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        background-color: $primary-color;
+        @include elevation(4);
+      }
+
+      $footer-height: 50px;
 
       .outer-container {
         padding-top: 60px;
@@ -49,14 +76,16 @@ html {
         }
 
         .footer {
-          background-color: $color_accent_lt;
-          border-top: 1px solid $color_accent;
-          box-shadow: inset 0 -10px 20px $color_accent;
-          color: white;
           position: relative;
           height: $footer-height;
           padding: 20px;
-          text-shadow: 0 0 5px $color_accent;
+
+          p {
+            color: $primary-color-text;
+            opacity: $opacity-disabled;
+            text-align: right;
+            margin: 0;
+          }
         }
       }
     }

@@ -9,6 +9,6 @@ export const migrations = [{
 
 export const value = store => store.inc.get('value');
 
-export const reducer = reducerMap({
+export default reducerMap({
   [increment.type]: state => state.update('value', x => x + 1)
 });
