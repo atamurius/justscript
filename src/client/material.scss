@@ -12,6 +12,17 @@ $opacity-primary: .87;
 $opacity-secondary: .54;
 $opacity-disabled: .38;
 
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+@mixin font-header {
+  font-family: 'Lobster', serif;
+}
+@mixin font-mono {
+  font-family: 'Inconsolata', monospace;
+}
+
 @function top-shadow($depth) {
   $primary-offset: nth(1.5 3 10 14 19, $depth) * 1px;
   $blur: nth(1.5 3 10 14 19, $depth) * 4px;

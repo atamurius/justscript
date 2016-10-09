@@ -12,67 +12,20 @@ html {
   body {
     font-family: 'Noto Sans', sans-serif;
 
-    p {
-      text-align: justify;
-      @media (max-width: 480px) {
-        text-align: left;
-      }
-      margin-bottom: 1.2em;
-    }
-    h1, h2, h3, h4 {
-      font-family: 'Lobster', serif;
-    }
-    tt {
-      color: #555;
-      font-size: 120%;
-      font-family: 'Inconsolata', monospace;
-    }
-
     #content {
-
-      .navbar {
-        background-color: $primary-color;
-        border-top: 10px solid $primary-color-dark;
-        @include elevation(1);
-
-        .navbar-brand {
-          font-family: 'Inconsolata', monospace;
-          font-size: 150%;
-          color: $primary-color-text;
-          opacity: $opacity-primary;
-        }
-        .nav {
-          li.active {
-            background-color: $primary-color-light;
-          }
-          li:hover {
-            background-color: $primary-color-light;
-          }
-          a {
-            color: $primary-color-text;
-            opacity: $opacity-primary;
-            background-color: transparent;
-          }
-        }
-      }
-
-      .test {
-        width: 200px;
-        height: 200px;
-        margin: 20px;
-        background-color: $primary-color;
-        @include elevation(4);
-      }
 
       $footer-height: 50px;
 
       .outer-container {
-        padding-top: 60px;
+        @media (min-width: $screen-sm-min) {
+          padding-top: 10px;
+        }
 
         .top-level.container {
           min-height: 100%;
           margin-bottom: -$footer-height;
-          padding-bottom: $footer-height + 40px;
+          padding: 0 0 $footer-height + 40px 0;
+          width: 100%;
         }
 
         .footer {
@@ -88,6 +41,92 @@ html {
           }
         }
       }
+    }
+  }
+}
+
+// Navigation
+
+nav {
+  border-top: 10px solid $primary-color;
+  width: 100%;
+  z-index: 9999;
+
+  @media (min-width: $screen-sm-min) {
+    position: fixed;
+    top: 0;
+  }
+
+  h1 {
+    padding: .4em;
+    margin: 0 0 .4em 0;
+    @include font-mono;
+    opacity: $opacity-primary;
+    background-color: $primary-color-light;
+    font-size: 130%;
+
+    @media (min-width: $screen-sm-min) {
+      background-color: transparent;
+    }
+  }
+
+  a {
+    color: $accent-color;
+    cursor: pointer;
+
+    &.current {
+      font-weight: bold;
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    ol.navigation {
+      width: 20%;
+      padding: .4em .6em 0 2em;
+    }
+  }
+}
+
+// Paragraphs
+
+.top-level {
+
+  tt {
+    color: #555;
+    font-size: 120%;
+    @include font-mono;
+  }
+
+  p, .text {
+    margin: 0 auto 1em auto;
+    width: 95%;
+    opacity: $opacity-primary;
+    text-align: left;
+    @media (min-width: $screen-sm-min) {
+      text-align: justify;
+      width: 60%;
+    }
+  }
+
+  h1, h2 {
+    @include font-header;
+    color: $primary-color-dark;
+    padding: 0 2%;
+    @media (min-width: $screen-sm-min) {
+      padding: 0 20%;
+    }
+  }
+
+  .editor {
+    border: 1px solid $divider-color;
+    .ace_editor {
+      @include font-mono;
+      font-size: 130%;
+    }
+    margin: 0 auto;
+    width: 95%;
+    @media (min-width: $screen-sm-min) {
+      width: 60%;
     }
   }
 }
