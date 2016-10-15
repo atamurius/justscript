@@ -1,0 +1,60 @@
+@import '../../common.scss';
+
+.editor {
+  &__frame {
+    border: 1px solid $divider-color;
+    .ace_editor {
+      @include font-mono;
+      font-size: 130%;
+    }
+    margin: 0 auto;
+    width: 95%;
+    @media (min-width: $screen-sm-min) {
+      width: $column-width;
+    }
+
+    &__footer {
+      text-align: right;
+      background-color: #eee;
+      font-size: 80%;
+      opacity: $opacity-secondary;
+      padding: .2em .5em;
+      border-top: 1px solid $divider-color;
+      kbd {
+        font-size: 100%;
+      }
+    }
+  }
+
+  &__results {
+    float: right;
+    width: (100% - $column-width) / 2;
+    opacity: $opacity-primary;
+
+    &__error {
+      color: red;
+      h3 {
+        margin: 0;
+        font-size: 100%;
+        font-weight: bold;
+      }
+      p, h3 {
+        padding: .3em .5em;
+        margin: 0;
+        width: auto;
+      }
+    }
+    &__result {
+      h3 {
+        margin: 0;
+        font-size: 100%;
+        font-weight: bold;
+      }
+      p, h3 {
+        padding: .3em .5em;
+        margin: 0;
+        width: auto;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-@import "../material.scss";
+@import "../common.scss";
 
 html, body {
   height: 100%;
@@ -44,8 +44,6 @@ html {
     }
   }
 }
-
-$column-width: 50%;
 
 // Navigation
 
@@ -116,19 +114,6 @@ nav {
     padding: 0 2%;
     @media (min-width: $screen-sm-min) {
       padding: 0 (100% - $column-width)/2;
-    }
-  }
-
-  .editor {
-    border: 1px solid $divider-color;
-    .ace_editor {
-      @include font-mono;
-      font-size: 130%;
-    }
-    margin: 0 auto;
-    width: 95%;
-    @media (min-width: $screen-sm-min) {
-      width: $column-width;
     }
   }
 }

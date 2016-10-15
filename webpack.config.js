@@ -18,7 +18,8 @@ module.exports = {
       query: {
         plugins: [
           'transform-runtime',
-          'transform-export-extensions'
+          'transform-export-extensions',
+          'transform-flow-strip-types'
         ],
         presets: ['latest','react','stage-0'],
       }

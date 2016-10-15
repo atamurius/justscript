@@ -3,31 +3,12 @@ import { Link } from 'react-router';
 import { increment, value } from 'client/modules/inc';
 import { listVersions } from 'client/modules/versions';
 import { connected } from 'client/utils/redux';
-import Ace from 'react-ace';
-import brace from 'brace';
-import 'brace/mode/javascript';
-import 'brace/theme/xcode';
-import $ from 'jquery';
+import Editor from '../components/editor';
 
 class Test extends React.Component {
 
   static stores = [ 'inc','versions' ];
   static actions = { increment };
-
-  componentDidMount() {
-    window.addEventListener('resize', this.resizeEditors);
-    this.resizeEditors();
-  }
-
-  resizeEditors = () => {
-    $('.ace_editor').each((i,e) => {
-      this.resizeEditor($(e))
-    })
-  }
-
-  resizeEditor = e => {
-    e.css('width', e.parent().width());
-  }
 
   render() {
     const { increment } = this.props;
@@ -48,10 +29,7 @@ class Test extends React.Component {
           )}
         </ul>
         <h2>Code editor</h2>
-        <div className="editor">
-          <Ace mode="javascript" theme="xcode" height="100px"
-               showPrintMargin={false} highlightActiveLine={true} />
-        </div>
+        <Editor code="2 * 2"/>
       </div>
     );
   }
