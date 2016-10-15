@@ -27,33 +27,41 @@
   }
 
   &__results {
-    float: right;
-    width: (100% - $column-width) / 2;
     opacity: $opacity-primary;
+    margin: 0 auto;
+    margin-bottom: .5em;
+    width: 95%;
+
+    @media (min-width: $screen-sm-min) {
+      float: right;
+      width: (100% - $column-width) / 2;
+      margin: 0;
+      margin-bottom: .5em;
+
+      &__error, &__result {
+        p, h3 {
+          padding: .3em .5em;
+        }
+      }
+    }
+
+    &__error, &__result {
+      p, h3 {
+        margin: 0;
+        width: auto;
+        font-size: 100%;
+      }
+    }
 
     &__error {
       color: red;
       h3 {
-        margin: 0;
-        font-size: 100%;
         font-weight: bold;
-      }
-      p, h3 {
-        padding: .3em .5em;
-        margin: 0;
-        width: auto;
       }
     }
     &__result {
       h3 {
-        margin: 0;
-        font-size: 100%;
         font-weight: bold;
-      }
-      p, h3 {
-        padding: .3em .5em;
-        margin: 0;
-        width: auto;
       }
     }
   }
